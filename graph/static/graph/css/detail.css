@@ -1,0 +1,61 @@
+
+
+.arrow-button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: steelblue;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+.arrow-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.arrow-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.arrow-button:hover span {
+  padding-right: 25px;
+}
+
+.arrow-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button-holder {
+  display: block;
+  text-align: center;
+  position: center;
+}
+
+.button-holder input {
+    text-align: center;
+}
+
+.input-group  {
+  width: 80%;
+  left: 10%;
+}
+
+#search-point {
+  display: none;
+}

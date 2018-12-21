@@ -1,0 +1,68 @@
+{% extends "graph/base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'graph/d3/default.css' %}">
+<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<script src="https://peterbeshai.com/d3-interpolate-path/d3-interpolate-path.js"></script>
+<script src="{% static 'graph/tone/node_modules/tone/build/Tone.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="{% static 'graph/d3/d3_main.js' %}"></script>
+<script src="{% static 'graph/tone/osc.js' %}"></script>
+
+<link rel="stylesheet" href="{% static 'graph/css/detail.css' %}">
+
+<body>
+	<br>
+	<div class="button-holder">
+			<label>Graph Name: </label>
+			<br>
+	    <input size="40" type="text" id="name" value = "{{object.title}}"><br><br>
+	</div>
+	<div class="input-group">
+		<label style="padding: 10px;">X-Axis: </label>
+		<span class="input-group-addon"></span>
+		<input id="inputArrayX" type="text" class="form-control" name="x" placeholder="X-Axis" value="{{object.xaxis}}">
+	</div>
+	<div class="input-group">
+		<label style="padding: 10px;">Y-Axis:</label>
+		<span class="input-group-addon"></span>
+		<input id="inputArrayY" class="form-control" name="y" placeholder="Y-Axis" value="{{object.yaxis}}">
+	</div>
+	<div class="lineButtons">
+			<button name="inputButton" class="arrow-button" type="button" value="Input" onclick="parse();" id="submit">
+					<span>Input</span>
+			</button>
+  </div>
+
+	<br>
+	<br>
+
+	<div class="row">
+		<div class="col-6">
+				<div class="chart"></div>
+				<svg></svg>
+		</div>
+		<div class="col-2">
+				<div class="btn-group-vertical">
+						<label>Pick Synth:</label>
+      			<button type="button" onclick="setSine()" class="btn btn-primary">Sine</button>
+      			<button type="button" onclick="setSaw()" class="btn btn-primary">Sawtooth</button>
+      			<button type="button" onclick="setSquare()" class="btn btn-primary">Square</button>
+      			<button type="button" onclick="setTriangle()" class="btn btn-primary">Triangle</button>
+  			</div>
+		</div>
+		<div class="col-2">
+				<div id="search-point">
+						<label>Search Point (x)</label>
+  					<input size="40" type="text" id="xSearch">
+  					<input name="inputSearch" type="button" value="inputSearch" placeholder="Search Point (x)" onclick="searchPoint()"/>
+					</div>
+		</div>
+	</div>
+
+
+</body>
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends "graph/base.html" %}
+{%load static %}
+{%block content %}
+  <div>
+    <form method = "POST">
+      {% csrf_token %}
+      <fieldset>
+        <legend> Insert Your Data </legend>
+        <small> If you need to use y and x axis coordinates, <br>
+                fill out 1 to 1. <br>
+                If linear, just fill out yaxis. <br>
+        </small>
+        <script src="{% static 'graph/csv/jquery.csv.js' %}"> </script>
+         <script src="{% static 'graph/csv/csvreader.js' %}"> </script>
+         <input type="file" id="files" name="files[]" multiple />
+         <input type="button" value="Load File" onclick="csvparse()">
+        {{form.as_p }}
+      </fieldset>
+      <div>
+        <button class = "btn btn-outline-info" type = "submit"> Add DataSet </button>
+      </div>
+    </form>
+  </div>
+
+
+{% endblock content %}
